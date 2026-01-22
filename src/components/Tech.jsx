@@ -1,30 +1,21 @@
 import React from "react";
+import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
-import { BallCanvas } from "./canvas";
 
 const Tech = () => {
-  // detect mobile screen
-  const isMobile = window.innerWidth <= 768;
-
   return (
-    <div className="flex flex-row flex-wrap justify-center gap-10">
+    <div className="flex flex-wrap justify-center gap-6 sm:gap-10 px-4">
       {technologies.map((technology) => (
         <div
           key={technology.name}
-          className="w-24 h-24 flex items-center justify-center"
+          className="
+            w-20 h-20        /* Mobile size */
+            sm:w-24 sm:h-24  /* Tablet */
+            md:w-28 md:h-28  /* Laptop */
+          "
         >
-          {/* On Mobile → show normal image */}
-          {isMobile ? (
-            <img
-              src={technology.icon}
-              alt={technology.name}
-              className="w-16 h-16 object-contain"
-            />
-          ) : (
-            /* On Laptop → show 3D ball */
-            <BallCanvas icon={technology.icon} />
-          )}
+          <BallCanvas icon={technology.icon} />
         </div>
       ))}
     </div>
