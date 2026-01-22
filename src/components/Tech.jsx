@@ -4,23 +4,28 @@ import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 
 const Tech = () => {
+  const isMobile = window.innerWidth < 768;
+
   return (
-    <div
-      className="
-        flex flex-wrap justify-center gap-6
-        sm:gap-10
-        px-4
-      "
-    >
+    <div className="flex flex-row flex-wrap justify-center gap-8">
       {technologies.map((technology) => (
         <div
           key={technology.name}
-          className="
-            w-20 h-20        /* Mobile size */
-            sm:w-28 sm:h-28 /* Laptop size */
-          "
+          className="w-24 h-24 sm:w-28 sm:h-28 flex justify-center items-center"
         >
-          <BallCanvas icon={technology.icon} />
+          {/* MOBILE VIEW → SIMPLE CIRCLE ICON */}
+          {isMobile ? (
+            <div className="w-full h-full rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex justify-center items-center shadow-md">
+              <img
+                src={technology.icon}
+                alt={technology.name}
+                className="w-12 h-12 object-contain"
+              />
+            </div>
+          ) : (
+            /* DESKTOP VIEW → 3D BALL */
+            <BallCanvas icon={technology.icon} />
+          )}
         </div>
       ))}
     </div>
