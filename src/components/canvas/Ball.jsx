@@ -1,5 +1,5 @@
-import React, { Suspense, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useRef, useEffect } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Decal, Float, OrbitControls, Preload, useTexture } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
@@ -7,6 +7,29 @@ import CanvasLoader from "../Loader";
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
   const meshRef = useRef();
+
+  // 🔥 Store default rotation
+  const defaultRotation = useRef([0, 0, 0]);
+  const resetTimer = useRef(null);
+
+  // 🔥 Watch rotation and reset after 3 seconds
+  useFrame(() => {
+    if (!meshRef.current) return;
+
+    if (resetTimer.current) {
+      clearTimeout(resetTimer.current);
+    }
+
+    resetTimer.current = setTimeout(() => {
+      if (meshRef.current) {
+        meshRef.current.rotation.set(
+          defaultRotation.current[0],
+          defaultRotation.current[1],
+          defaultRotation.current[2]
+        );
+      }
+    }, 3000); // ⏱ reset after 3 seconds
+  });
 
   return (
     <Float speed={1.5} rotationIntensity={0.8} floatIntensity={1.5}>
@@ -38,14 +61,14 @@ const Ball = (props) => {
 const BallCanvas = ({ icon }) => {
   return (
     <Canvas
-      frameloop="always"              // 🔥 MUST for mobile
-      dpr={[1, 1.5]}                  // 🔥 reduce GPU load
+      frameloop="always"
+      dpr={[1, 1.5]}
       gl={{ preserveDrawingBuffer: true }}
       className="w-full h-full"
       camera={{ position: [0, 0, 5] }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        {/* 🔥 IMPORTANT: limit controls */}
+        {/* 🔥 Mobile safe controls */}
         <OrbitControls
           enableZoom={false}
           enablePan={false}
