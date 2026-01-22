@@ -106,17 +106,19 @@ const Navbar = () => {
               ))}
 
               {/* Resume Button (Mobile - Perfect Line) */}
-              <li className="w-full">
-                <a
-                  href="/Aryan Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setToggle(false)}
-                  className="block w-full mt-2 px-4 py-2 rounded-lg border border-[#915EFF] text-[#915EFF] text-center font-medium hover:bg-[#915EFF] hover:text-white transition"
-                >
-                  Resume
-                </a>
-              </li>
+              <li
+  className={`font-medium cursor-pointer text-[16px] text-secondary hover:text-white`}
+  onClick={() => setToggle(false)}
+>
+  <a
+    href="/Aryan Resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Resume
+  </a>
+</li>
+
             </ul>
           </div>
         </div>
