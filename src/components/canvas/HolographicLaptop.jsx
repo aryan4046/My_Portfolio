@@ -48,7 +48,7 @@ const HoloScreens = ({ isMobile }) => {
             {/* 
                LEFT SCREEN: Code/Logic 
             */}
-            <Html transform position={[-3.4, 0, 1.0]} rotation={[0, 0.4, 0]} distanceFactor={1.6}>
+            <Html transform position={[-2.5, 0, 1.0]} rotation={[0, 0.4, 0]} distanceFactor={1.6}>
                 <div className="w-[400px] h-[500px] bg-black/85 backdrop-blur-md rounded-xl border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.2)] p-5 flex flex-col select-none pointer-events-none">
                     <div className="text-purple-400 text-xs font-bold tracking-widest mb-4 border-b border-white/10 pb-2">CORE LOGIC</div>
                     <div className="space-y-3 font-mono text-sm text-gray-300">
@@ -76,7 +76,7 @@ const HoloScreens = ({ isMobile }) => {
             {/* 
                RIGHT SCREEN: Metrics/Data
             */}
-            <Html transform position={[3.4, 0, 1.0]} rotation={[0, -0.4, 0]} distanceFactor={1.6}>
+            <Html transform position={[2.5, 0, 1.0]} rotation={[0, -0.4, 0]} distanceFactor={1.6}>
                 <div className="w-[400px] h-[500px] bg-black/85 backdrop-blur-md rounded-xl border border-green-500/30 shadow-[0_0_50px_rgba(34,197,94,0.2)] p-5 flex flex-col select-none pointer-events-none">
                     <div className="text-green-400 text-xs font-bold tracking-widest mb-4 border-b border-white/10 pb-2">SYSTEM METRICS</div>
 
