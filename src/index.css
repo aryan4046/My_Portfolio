@@ -228,6 +228,25 @@ body {}
   border-radius: 10px;
 }
 
+/* Custom Scrollbar for Projects */
+.project-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.project-scroll-container::-webkit-scrollbar-track {
+  background: #1d1836;
+  border-radius: 10px;
+}
+
+.project-scroll-container::-webkit-scrollbar-thumb {
+  background: #915EFF;
+  border-radius: 10px;
+}
+
+.project-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #804dee;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #784bc2;
 }

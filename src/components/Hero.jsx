@@ -18,8 +18,8 @@ const TypewriterText = ({ text, className = "", floating = false, delay = 0 }) =
   }, [floating, text, delay]);
 
   return (
-    <motion.span
-      className={`inline-flex flex-wrap ${className}`}
+    <motion.div
+      className={`inline-flex flex-wrap gap-x-2 ${className}`}
       initial="hidden"
       animate="visible"
       variants={{
@@ -27,34 +27,39 @@ const TypewriterText = ({ text, className = "", floating = false, delay = 0 }) =
         hidden: {},
       }}
     >
-      {text.split("").map((char, index) => (
-        <motion.span
-          key={index}
-          className={`inline-block ${floating ? "cursor-pointer" : ""}`}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0, transition: { type: "spring", damping: 12, stiffness: 200 } },
-          }} // Base animation (Typing)
-          animate={startFloating ? { // Overlay animation (Floating)
-            opacity: 1, // Maintain visibility
-            y: [0, -8, 0],
-            rotate: [0, 1, -1, 0],
-            transition: {
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              repeatType: "mirror",
-              ease: "easeInOut",
-              delay: Math.random() * 2,
-            }
-          } : undefined}
-          whileHover={startFloating ? {
-            y: -20, scale: 1.2, rotate: Math.random() * 20 - 10, color: "#915EFF", transition: { duration: 0.2 }
-          } : undefined}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
+      {text.split(" ").map((word, wordIndex) => (
+        <span key={wordIndex} className="inline-block whitespace-nowrap">
+          {word.split("").map((char, charIndex) => (
+            <motion.span
+              key={`${wordIndex}-${charIndex}`}
+              className={`inline-block ${floating ? "cursor-pointer" : ""}`}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { type: "spring", damping: 12, stiffness: 200 } },
+              }}
+              animate={startFloating ? {
+                opacity: 1,
+                y: [0, -8, 0],
+                rotate: [0, 1, -1, 0],
+                transition: {
+                  duration: 3 + Math.random() * 2,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                  delay: Math.random() * 2,
+                }
+              } : undefined}
+              whileHover={startFloating ? {
+                y: -20, scale: 1.2, rotate: Math.random() * 20 - 10, color: "#915EFF", transition: { duration: 0.2 }
+              } : undefined}
+            >
+              {char}
+            </motion.span>
+          ))}
+          {/* Add a space character only visually if needed, but flex gap handles spacing */}
+        </span>
       ))}
-    </motion.span>
+    </motion.div>
   );
 };
 
@@ -89,7 +94,7 @@ const Hero = () => {
       </div>
 
       {/* 3D Holographic Laptop */}
-      <div className="absolute inset-0 top-[120px]">
+      <div className="absolute inset-0 top-[120px] hidden sm:block">
         <HolographicLaptopCanvas />
       </div>
     </section>
