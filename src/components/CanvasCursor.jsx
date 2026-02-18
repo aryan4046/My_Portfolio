@@ -40,7 +40,23 @@ const CanvasCursor = () => {
             canvas.height = height;
         };
 
+        const handleTouchMove = (e) => {
+            if (e.touches.length > 0) {
+                mouse.x = e.touches[0].clientX;
+                mouse.y = e.touches[0].clientY;
+
+                // Check if touch is over footer
+                if (e.target.closest('footer')) {
+                    isCursorVisible = false;
+                } else {
+                    isCursorVisible = true;
+                }
+            }
+        };
+
         window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("touchmove", handleTouchMove, { passive: true });
+        window.addEventListener("touchstart", handleTouchMove, { passive: true });
         window.addEventListener("resize", handleResize);
 
         const render = () => {
@@ -120,6 +136,8 @@ const CanvasCursor = () => {
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("touchmove", handleTouchMove);
+            window.removeEventListener("touchstart", handleTouchMove);
             window.removeEventListener("resize", handleResize);
             cancelAnimationFrame(animationId);
         };
