@@ -60,8 +60,8 @@ const Contact = () => {
     <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10">
       {/* LEFT: CONTACT FORM */}
       <motion.div
-  variants={slideIn("left", "tween", 0.2, 1)}
-  className="
+        variants={slideIn("left", "tween", 0.2, 1)}
+        className="
     w-full 
     max-w-[520px] 
     bg-black-100 
@@ -69,7 +69,7 @@ const Contact = () => {
     rounded-2xl 
     mx-auto
   "
->
+      >
 
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -126,8 +126,8 @@ const Contact = () => {
 
       {/* RIGHT: EARTH */}
       <motion.div
-  variants={slideIn("right", "tween", 0.2, 1)}
-  className="
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className="
     flex justify-center items-center
     xl:flex-1 
     w-full
@@ -137,20 +137,21 @@ const Contact = () => {
     xl:h-[650px]
     overflow-visible
   "
->
-  <div
-    className="
-      w-[420px]
+      >
+        <div
+          className="
+      w-full
+      max-w-[420px]
       sm:w-[360px]
       md:w-[420px]
       lg:w-[500px]
       xl:w-[580px]
       aspect-square
     "
-  >
-    <EarthCanvas />
-  </div>
-</motion.div>
+        >
+          <EarthCanvas />
+        </div>
+      </motion.div>
 
 
     </div>

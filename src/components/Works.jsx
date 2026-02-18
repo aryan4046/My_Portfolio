@@ -17,20 +17,20 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} className="flex-shrink-0 snap-center">
       <Tilt
         options={{
           max: 45,
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl w-[360px] h-[520px] flex flex-col justify-between"
+        className="bg-tertiary p-5 rounded-2xl sm:w-[480px] w-full min-h-[540px] flex flex-col"
       >
-        <div className="relative w-full h-[230px]">
+        <div className="relative w-full h-[260px]">
           <img
             src={image}
             alt="project_image"
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full object-cover object-top rounded-2xl"
           />
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
@@ -47,7 +47,7 @@ const ProjectCard = ({
           </div>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-5 select-none">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
           <p className="mt-2 text-secondary text-[14px]">{description}</p>
         </div>
@@ -80,13 +80,13 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          These projects highlight my technical skills and hands-on experience through real-world applications. 
-          Each project demonstrates my ability to design, develop, and deploy effective solutions using modern technologies, 
+          These projects highlight my technical skills and hands-on experience through real-world applications.
+          Each project demonstrates my ability to design, develop, and deploy effective solutions using modern technologies,
           while solving practical problems and building scalable systems.
         </motion.p>
       </div>
 
-      <div className="mt-20 flex flex-wrap justify-center gap-10">
+      <div className="mt-20 flex flex-nowrap overflow-x-auto gap-10 pb-10 snap-x snap-proximity scroll-smooth">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}

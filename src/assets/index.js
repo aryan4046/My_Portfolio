@@ -18,6 +18,8 @@ import python from "./tech/python.png";
 import cloud from "./tech/cloud.png";
 
 import aitriage from "./aitriage.png";
+import ai_health from "./ai_health.png";
+import projexly from "./projexly.png";
 import ecobudget from "./ecobudget.png";
 
 
@@ -41,5 +43,7 @@ export {
   python,
   cloud,
   aitriage,
+  ai_health,
+  projexly,
   ecobudget,
 };

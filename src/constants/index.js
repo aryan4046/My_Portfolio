@@ -14,6 +14,8 @@ import {
   mobile,
   backend,
   creator,
+  ai_health,
+  projexly,
 } from "../assets";
 
 export const navLinks = [
@@ -95,29 +97,29 @@ const technologies = [
 
 const projects = [
   {
-    name: "AI Triage Agent",
+    name: "AI Health Assistant",
     description:
-      "Web-based platform that allows userAn AI-based web application that analyzes user-reported symptoms and provides preliminary health guidance such as self-care advice, doctor consultation, or emergency alerts. It helps users make quick and informed decisions about seeking medical attention.",
+      "AI-powered web application that analyzes user-reported symptoms using Logistic Regression and TF-IDF, classifies risk levels, and recommends specialist doctors along with real doctors from Ahmedabad. Built using React, Flask, MySQL, and Scikit-learn, this project demonstrates full-stack development combined with machine learning integration.",
     tags: [
       {
-        name: "Python",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "HTML",
+        name: "Flask",
         color: "green-text-gradient",
       },
       {
-        name: "CSS",
+        name: "MySQL",
         color: "pink-text-gradient",
       },
       {
-        name: "JavaScript",
+        name: "Scikit-learn",
         color: "purple-text-gradient",
       },
     ],
-    image: aitriage,
-    source_code_link: "https://github.com/aryan4046/AI_Healthcare_Agent.git",
+    image: ai_health,
+    source_code_link: "https://github.com/aryan4046/AI-Triage-System.git",
   },
   {
     name: "EcoBudget",
@@ -135,6 +137,31 @@ const projects = [
     ],
     image: ecobudget,
     source_code_link: "https://github.com/aryan4046/EcoBudget-Smart-Money-Carbon-Planner.git",
+  },
+  {
+    name: "Projexly",
+    description:
+      "Projexly is a full-stack freelance marketplace web application built for students and freelancers. Students can post projects with budget and deadline, while freelancers can browse projects, send proposals, and complete assigned work. The platform includes separate dashboards, role-based authentication using JWT, and secure project management. Built using React, Tailwind CSS, Node.js, Express, and MongoDB.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Tailwind",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: projexly,
+    source_code_link: "https://github.com/aryan4046/Projexly.git",
   },
 ];
 
