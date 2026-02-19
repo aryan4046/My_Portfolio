@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { HolographicLaptopCanvas } from "./canvas";
+import { RobotCanvas } from "./canvas";
 
 const TypewriterText = ({ text, className = "", floating = false, delay = 0 }) => {
   const [startFloating, setStartFloating] = useState(false);
@@ -93,9 +93,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* 3D Holographic Laptop */}
-      <div className="absolute inset-0 top-[120px] hidden sm:block">
-        <HolographicLaptopCanvas />
+      {/* 3D Tech Laptop Scene */}
+      <div className="absolute inset-0 top-[120px] block">
+        <RobotCanvas />
       </div>
     </section>
   );
