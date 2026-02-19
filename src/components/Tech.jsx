@@ -11,12 +11,14 @@ const Tech = () => {
       {technologies.map((technology) => (
         <div className="w-28 h-28 flex justify-center items-center" key={technology.name}>
           {isMobile ? (
-            <img
-              src={technology.icon}
-              alt={technology.name}
-              className="w-20 h-20 object-contain"
-              loading="lazy"
-            />
+            <div className="w-24 h-24 rounded-full bg-tertiary border-2 border-secondary flex justify-center items-center shadow-[0_0_15px_rgba(145,94,255,0.4)]">
+              <img
+                src={technology.icon}
+                alt={technology.name}
+                className="w-16 h-16 object-contain p-1"
+                loading="lazy"
+              />
+            </div>
           ) : (
             <BallCanvas icon={technology.icon} />
           )}
